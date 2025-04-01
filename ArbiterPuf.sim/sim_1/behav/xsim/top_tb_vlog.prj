@@ -1,0 +1,14 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../ArbiterPuf.srcs/sources_1/new/Dlatch.v" \
+"../../../../ArbiterPuf.srcs/sources_1/new/MUX-block.v" \
+"../../../../ArbiterPuf.srcs/sources_1/new/MUX.v" \
+"../../../../ArbiterPuf.srcs/sources_1/new/puf.v" \
+"../../../../ArbiterPuf.srcs/sources_1/new/top.v" \
+"../../../../ArbiterPuf.srcs/sim_1/new/top_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

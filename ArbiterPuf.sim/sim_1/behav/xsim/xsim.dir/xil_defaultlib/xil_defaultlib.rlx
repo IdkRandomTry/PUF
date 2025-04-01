@@ -1,0 +1,11 @@
+0.6
+2019.2
+Nov  6 2019
+21:57:16
+C:/Users/LABAdmin/ArbiterPuf/ArbiterPuf.sim/sim_1/behav/xsim/glbl.v,1573089660,verilog,,,,glbl,,,,,,,,
+C:/Users/LABAdmin/ArbiterPuf/ArbiterPuf.srcs/sim_1/new/top_tb.v,1743480708,verilog,,,,top_tb,,,,,,,,
+C:/Users/LABAdmin/ArbiterPuf/ArbiterPuf.srcs/sources_1/new/Dlatch.v,1743477631,verilog,,C:/Users/LABAdmin/ArbiterPuf/ArbiterPuf.srcs/sources_1/new/MUX-block.v,,Dlatch,,,,,,,,
+C:/Users/LABAdmin/ArbiterPuf/ArbiterPuf.srcs/sources_1/new/MUX-block.v,1743480272,verilog,,C:/Users/LABAdmin/ArbiterPuf/ArbiterPuf.srcs/sources_1/new/MUX.v,,MUXblock,,,,,,,,
+C:/Users/LABAdmin/ArbiterPuf/ArbiterPuf.srcs/sources_1/new/MUX.v,1743477654,verilog,,C:/Users/LABAdmin/ArbiterPuf/ArbiterPuf.srcs/sources_1/new/puf.v,,MUX,,,,,,,,
+C:/Users/LABAdmin/ArbiterPuf/ArbiterPuf.srcs/sources_1/new/puf.v,1743480270,verilog,,C:/Users/LABAdmin/ArbiterPuf/ArbiterPuf.srcs/sources_1/new/top.v,,puf,,,,,,,,
+C:/Users/LABAdmin/ArbiterPuf/ArbiterPuf.srcs/sources_1/new/top.v,1743479914,verilog,,C:/Users/LABAdmin/ArbiterPuf/ArbiterPuf.srcs/sim_1/new/top_tb.v,,top,,,,,,,,
