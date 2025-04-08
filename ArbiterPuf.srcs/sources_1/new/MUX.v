@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module MUX(
+module MUX (
     input in_0, in_1, sel,
     output out
     );
