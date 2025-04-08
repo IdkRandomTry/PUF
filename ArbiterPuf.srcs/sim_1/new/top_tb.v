@@ -15,6 +15,7 @@ end
 top uut (.clk(clk), .reset(reset), .seed(seed), .out(out));
 
 initial begin
+    reset = 1;#15
     reset = 0;
 end
 
