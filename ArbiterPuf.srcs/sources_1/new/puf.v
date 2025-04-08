@@ -54,19 +54,22 @@ module puf #(parameter N = 8) (
         .q     (d_out)   // PUF response output
     );
     
-    always @(posedge start_flag)
+    always @(posedge start_flag or posedge finish_flag or posedge reset)
     begin
-        race_reset <= 0;
-        in <= 1;
+        if (reset) begin
+            race_reset <= 1;
+            in <= 0;
+            out <= 0;
+        end
+        else if (start_flag) begin
+            race_reset <= 0;
+            in <= 1;
+        end
+        else if (finish_flag) begin
+            race_reset <= 1;
+            in <= 0;
+            out <= d_out;
+        end
     end
     
-    always @(negedge start_flag or posedge reset)
-    begin
-        if (reset) out <= 0;
-        else out <= d_out;
-        race_reset <= 1;
-        in <= 0;
-    end
-
-
 endmodule

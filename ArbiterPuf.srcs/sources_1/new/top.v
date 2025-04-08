@@ -19,34 +19,31 @@ module top #(parameter N = 8) (
 
     // LFSR state register with synchronous reset
     reg [N-1:0] challenge;
-    reg new_challenge;
-
+    reg en_puf;
+    wire clk_n;
+    assign clk_n = ~clk;
+    
     // PUF core instantiation with named port connections
     puf #(.N(N)) puf_race (
         .challenge(challenge),  // Current challenge pattern
         .reset(reset),          // System reset
-        .start_flag(new_challenge),
+        .start_flag(en_puf),
         .out(out)               // PUF response
     );
 
-    always @(negedge clk) begin
-        new_challenge = 0;
-    end
-
     // LFSR update logic with custom polynomial: x^N + x + 1
-    always @(posedge clk, posedge reset) begin
+    always @(posedge clk, posedge reset, posedge clk_n) begin
         if (reset) begin
             challenge <= seed;  // Asynchronous reset to initial seed
        
         end
         else begin
-            // Custom feedback polynomial: XOR MSB with LSB and invert
-            challenge <= {challenge[N-2:0], (challenge[N-1] ^ challenge[0] ^ 1'b1)};
-            new_challenge = 1;
-        end
-        
-        if (en) begin
-            
+            if (clk) begin
+                // Custom feedback polynomial: XOR MSB with LSB and invert
+                challenge <= {challenge[N-2:0], (challenge[N-1] ^ challenge[0] ^ 1'b1)};
+                if (en) en_puf <= 1;
+            end
+            else en_puf <= 0;
         end
     end
 
