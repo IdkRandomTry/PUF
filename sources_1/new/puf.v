@@ -45,21 +45,22 @@ module puf #(parameter N = 8) (
             );
         end
     endgenerate
-    
-    
-    always @(posedge n[N-1])
+
+    always @(posedge reset or posedge n[N-1] or posedge start_flag)
     begin
-        out<=m[N-1];
-    end
-    
-    always @(posedge reset)
+    if (reset)
     begin
         in <= 0;
         out <= 0;
         in_reset <= 1;
     end
-    
-    always @(posedge start_flag)
-        in<=1;
-    
+    else
+    begin
+    if (start_flag)
+        begin
+            if(!in) in<= 1;
+            if (n[N-1]) out<=m[N-1]; 
+        end
+    end
+    end
 endmodule
